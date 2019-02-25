@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 
 
@@ -20,24 +21,36 @@ class Euler:
         r = requests.get(url)
         if r.status_code != requests.codes.ok:
             return None
-
         return r.content
 
     def _getProblemFromHtml(self, htmlContent):
-        if htmlContent in ['None', '']:
+        if htmlContent in [None, '']:
+            return None
+
+        soup = BeautifulSoup(htmlContent, 'html.parser')
+
+        probNotAvail = soup.findAll(text=re.compile('Problem not accessible'))
+        if len(probNotAvail) > 0:
             return None
 
         try:
-            soup = BeautifulSoup(htmlContent, 'html.parser')
             ps = soup.select("div p")
             s = [p.getText().replace('\n', '') for p in ps]
             s = ' '.join(s)
         except:
             return None
+
         s = s if s != '' else None
+
         return s
 
     def getProblem(self, number=None):
         url = self._generateProblemUrl(number)
+        if url is None:
+            return None, None
+
         content = self._getUrlContent(url)
-        return self._getProblemFromHtml(content)
+        if content is None:
+            return url, None
+
+        return url, self._getProblemFromHtml(content)
