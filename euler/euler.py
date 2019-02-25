@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 class Euler:
     def __init__(self):
         self.baseUrl = 'https://projecteuler.net'
@@ -22,7 +23,6 @@ class Euler:
 
         return r.content
 
-
     def _getProblemFromHtml(self, htmlContent):
         if htmlContent in ['None', '']:
             return None
@@ -41,5 +41,3 @@ class Euler:
         url = self._generateProblemUrl(number)
         content = self._getUrlContent(url)
         return self._getProblemFromHtml(content)
-
-

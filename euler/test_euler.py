@@ -26,10 +26,8 @@ class TestEuler(unittest.TestCase):
     example text that mocks requests.get and
     returns a mock Response object
     """
-    def _mock_response(
-            self,
-            status=200,
-            content="CONTENT"):
+
+    def _mock_response(self, status=200, content="CONTENT"):
         """
         since we typically test a bunch of different
         requests calls for a service, we are going to do
@@ -75,7 +73,6 @@ class TestEuler(unittest.TestCase):
                 res = self.e._generateProblemUrl(test['args'][0])
                 self.assertEqual(res, test['expected'], test['desc'])
 
-
     @mock.patch('requests.get')
     def test__getUrlContent(self, mock_get):
         baseProbUrl = 'https://projecteuler.net/problem=1',
@@ -108,7 +105,6 @@ class TestEuler(unittest.TestCase):
             with self.subTest(msg=test['desc']):
                 res = self.e._getUrlContent(test['args'][0])
                 self.assertEqual(res, test['expected'], test['desc'])
-
 
     def test__getProblemFromHtml(self):
         problem1 = 'If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23. Find the sum of all the multiples of 3 or 5 below 1000.'
@@ -149,5 +145,3 @@ class TestEuler(unittest.TestCase):
 
     def test_getProblem(self):
         self.e.getProblem(1)
-
-
