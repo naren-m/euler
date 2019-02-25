@@ -31,11 +31,11 @@ class Euler:
         try:
             soup = BeautifulSoup(htmlContent, 'html.parser')
             ps = soup.select("div p")
-            s = [p.getText() for p in ps]
-            s = '  '.join(s)
+            s = [p.getText().replace('\n', '') for p in ps]
+            s = ' '.join(s)
         except:
             return None
-
+        s = s if s != '' else None
         return s
 
     def getProblemStatement(self, number=None):
