@@ -12,8 +12,7 @@ class Euler:
 
         return self.problemUrl % number
 
-    def _getUrlContent(self, number):
-        url = self._generateProblemUrl(number)
+    def _getUrlContent(self, url):
         if url == None:
             return None
 
@@ -39,7 +38,8 @@ class Euler:
         return s
 
     def getProblemStatement(self, number=None):
-        content = self._getUrlContent(number)
+        url = self._generateProblemUrl(number)
+        content = self._getUrlContent(url)
         return self._getProblemFromHtml(content)
 
 

@@ -78,30 +78,26 @@ class TestEuler(unittest.TestCase):
 
     @mock.patch('requests.get')
     def test__getUrlContent(self, mock_get):
+        baseProbUrl = 'https://projecteuler.net/problem=1',
         tests = [
             {
                 'desc': 'Positive: Problem url integer',
-                'args': [1],
+                'args': baseProbUrl,
                 'expected': 'TestContent'
             },
             {
                 'desc': 'Positive: Problem url integer',
-                'args': [512],
+                'args': baseProbUrl,
                 'expected': 'TestContent'
             },
             {
                 'desc': 'Positive: Problem url string',
-                'args': ['1'],
+                'args': baseProbUrl,
                 'expected': 'TestContent'
             },
             {
-                'desc': 'Negative: passing None number',
+                'desc': 'Negative: passing None Url',
                 'args': [None],
-                'expected': None
-            },
-            {
-                'desc': 'Negative: passing 0 problem number',
-                'args': [0],
                 'expected': None
             },
         ]
@@ -126,12 +122,12 @@ class TestEuler(unittest.TestCase):
             },
             {
                 'desc': 'Positive: Passing actual HTML content for problem 1',
-                'args': [self.e._getUrlContent(1)],
+                'args': [self.e._getUrlContent(self.e._generateProblemUrl(1))],
                 'expected': problem1
             },
             {
                 'desc': 'Positive: Passing actual HTML content for problem 2',
-                'args': [self.e._getUrlContent(2)],
+                'args': [self.e._getUrlContent(self.e._generateProblemUrl(2))],
                 'expected': problem2
             },
             {
