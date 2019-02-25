@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 class Euler:
     def __init__(self):
@@ -23,9 +24,22 @@ class Euler:
         return r.content
 
 
+    def _getProblemFromHtml(self, htmlContent):
+        if htmlContent in ['None', '']:
+            return None
+
+        try:
+            soup = BeautifulSoup(htmlContent, 'html.parser')
+            ps = soup.select("div p")
+            s = [p.getText() for p in ps]
+            s = '  '.join(s)
+        except:
+            return None
+
+        return s
+
     def getProblemStatement(self, number=None):
         content = self._getUrlContent(number)
-        print(content)
-
+        self._getProblemFromHtml(content)
 
 
