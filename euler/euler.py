@@ -40,6 +40,6 @@ class Euler:
 
     def getProblemStatement(self, number=None):
         content = self._getUrlContent(number)
-        self._getProblemFromHtml(content)
+        return self._getProblemFromHtml(content)
 
 

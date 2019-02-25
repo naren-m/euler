@@ -2,7 +2,7 @@ import euler
 import unittest
 import mock
 
-CHTML_CONTEN_FOR_PROBLEM1 = '''
+HTML_CONTENT_FOR_PROBLEM1 = '''
 <!DOCTYPE html>\r\n<html lang="en">\r\n
 <head>
 </head>
@@ -115,7 +115,7 @@ class TestEuler(unittest.TestCase):
 
 
     def test__getProblemFromHtml(self):
-        res = self.e._getProblemFromHtml(CHTML_CONTEN_FOR_PROBLEM1)
+        res = self.e._getProblemFromHtml(HTML_CONTENT_FOR_PROBLEM1)
         expected = 'If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.  Find the sum of all the multiples of 3 or 5 below 1000.'
         self.assertEqual(expected, res)
 
