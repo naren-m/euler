@@ -1,5 +1,10 @@
 import fire
 from .euler import Euler
 
-if __name__ == '__main__':
+
+def main():
     fire.Fire(Euler)
+
+
+if __name__ == '__main__':
+    main()

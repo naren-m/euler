@@ -153,17 +153,20 @@ class TestEuler(unittest.TestCase):
             {
                 'desc': 'Positive: Problem url integer',
                 'args': [1],
-                'expected': ('https://projecteuler.net/problem=1', self.problem1)
+                'expected': ('https://projecteuler.net/problem=1',
+                             self.problem1)
             },
             {
                 'desc': 'Positive: Problem url integer',
                 'args': [2],
-                'expected': ('https://projecteuler.net/problem=2', self.problem2)
+                'expected': ('https://projecteuler.net/problem=2',
+                             self.problem2)
             },
             {
                 'desc': 'Positive: Problem url string',
                 'args': ['1'],
-                'expected': ('https://projecteuler.net/problem=1', self.problem1)
+                'expected': ('https://projecteuler.net/problem=1',
+                             self.problem1)
             },
             {
                 'desc': 'Negative: passing None',
@@ -178,7 +181,8 @@ class TestEuler(unittest.TestCase):
             {
                 'desc': 'Negative: passing non-existant problem number',
                 'args': [123456789],
-                'expected': ('https://projecteuler.net/problem=123456789', None)
+                'expected': ('https://projecteuler.net/problem=123456789',
+                             None)
             },
         ]
         for test in tests:

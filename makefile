@@ -23,6 +23,8 @@ clean-pyc: ## remove Python file artifacts
 		find . -name '*~' -exec rm -f {} +
 		find . -name '__pycache__' -exec rm -rf {} +
 
-
 format: clean
 	yapf -r -i .
+
+install: clean
+	pip3 install -e .
