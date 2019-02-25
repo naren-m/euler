@@ -37,7 +37,7 @@ class Euler:
         s = s if s != '' else None
         return s
 
-    def getProblemStatement(self, number=None):
+    def getProblem(self, number=None):
         url = self._generateProblemUrl(number)
         content = self._getUrlContent(url)
         return self._getProblemFromHtml(content)

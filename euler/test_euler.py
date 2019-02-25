@@ -147,7 +147,7 @@ class TestEuler(unittest.TestCase):
                 res = self.e._getProblemFromHtml(test['args'][0])
                 self.assertEqual(test['expected'], res)
 
-    def test_getProblemStatement(self):
-        self.e.getProblemStatement(1)
+    def test_getProblem(self):
+        self.e.getProblem(1)
 
 
