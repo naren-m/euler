@@ -1,9 +1,9 @@
-import fire
+from fire import Fire
 from .euler import Euler
 
 
 def main():
-    fire.Fire(Euler)
+    Fire(Euler)
 
 
 if __name__ == '__main__':

@@ -14,6 +14,11 @@ clean: clean-pyc clean-coverage
 		find . -name '*.swp' -exec rm -rf {} +
 		find . -name '*.bak' -exec rm -rf {} +
 
+clean-dist:
+		find . -name '*.egg-info' -exec rm -rf {} +
+		rm -rf dist
+		rm -rf build
+
 clean-coverage:
 	rm -rf htmlcov
 

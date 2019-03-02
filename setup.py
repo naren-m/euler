@@ -1,7 +1,22 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='euler',
+    description='Cli app to get problem from project euler webpage',
+    url='https://github.com/naren-m/euler',
+    author='Naren Mudivarthy',
+    author_email='naren.mudivarthy@gmail.com',
+    classifiers=[
+          'Development Status :: 4 - Beta',
+          'Intended Audience :: Any one interested in problem solving',
+          'License :: OSI Approved :: Apache Software License',
+          'Programming Language :: Python :: 3'
+    ],
+    packages=find_packages(),
+    install_requires=[
+        "fire",
+        "requests",
+        "bs4",
+    ],
     version='0.1.0',
-    packages=['euler'],
     entry_points={'console_scripts': ['euler = euler.__main__:main']})
