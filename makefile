@@ -33,3 +33,10 @@ format: clean
 
 install: clean
 	pip3 install -e .
+
+build:
+	python3 setup.py bdist_wheel
+
+release: clean clean-dist build
+	twine upload dist/*
+
