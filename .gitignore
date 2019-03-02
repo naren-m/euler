@@ -2,6 +2,6 @@
 __pycache__
 .coverage
 *.swp
-euler.egg-info
+euler_cli.egg-info
 build/
 dist/
