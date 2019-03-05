@@ -7,7 +7,12 @@ python:
 
 install:
   - pip3 install -r requirements.txt
+  - pip3 install coverage
+  - pip3 install codecov
 
 # command to run tests, e.g. python setup.py test
 script:
-  - make test
+  - make coverage
+
+after_success:
+  - codecov
