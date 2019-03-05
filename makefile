@@ -8,7 +8,7 @@ help:
 	@echo "make format     run yapf formatter"
 
 test: clean
-	(cd euler; python3 -m unittest)
+	(cd euler; python3 -m unittest test_euler.py)
 
 clean: clean-pyc clean-coverage
 		find . -name '*.swp' -exec rm -rf {} +
@@ -27,6 +27,7 @@ clean-pyc: ## remove Python file artifacts
 		find . -name '*.pyo' -exec rm -f {} +
 		find . -name '*~' -exec rm -f {} +
 		find . -name '__pycache__' -exec rm -rf {} +
+		find . -name '.eggs' -exec rm -rf {} +
 
 format: clean
 	yapf -r -i .
@@ -40,3 +41,6 @@ build:
 release: clean clean-dist build
 	twine upload dist/*
 
+coverage: clean
+	coverage run --source euler setup.py test
+	coverage html
