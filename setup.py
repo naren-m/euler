@@ -2,7 +2,8 @@ from setuptools import setup, find_packages
 
 setup(
     name='euler-cli',
-    description='Cli utility for setting up python modules to solve Project Euler',
+    description=
+    'Cli utility for setting up python modules to solve Project Euler',
     url='https://github.com/naren-m/euler',
     author='Naren Mudivarthy',
     author_email='naren.mudivarthy@gmail.com',
