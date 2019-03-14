@@ -3,5 +3,6 @@ __pycache__
 .coverage
 *.swp
 euler_cli.egg-info
+*.egg-info
 build/
 dist/

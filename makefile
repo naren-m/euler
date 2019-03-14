@@ -10,7 +10,7 @@ help:
 test: clean
 	(cd euler; python3 -m unittest test_euler.py)
 
-clean: clean-pyc clean-coverage
+clean: clean-pyc clean-coverage clean-dist
 		find . -name '*.swp' -exec rm -rf {} +
 		find . -name '*.bak' -exec rm -rf {} +
 
