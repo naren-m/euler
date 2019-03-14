@@ -2,6 +2,7 @@ import unittest
 import mock
 
 from .euler import Euler
+
 HTML_CONTENT_FOR_PROBLEM1 = '''
 <!DOCTYPE html>\r\n<html lang="en">\r\n
 <head>
