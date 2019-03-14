@@ -8,7 +8,7 @@ help:
 	@echo "make format     run yapf formatter"
 
 test: clean
-	(cd euler; python3 -m unittest test_euler.py)
+	(cd euler; python3 -m unittest discover)
 
 clean: clean-pyc clean-coverage clean-dist
 		find . -name '*.swp' -exec rm -rf {} +
