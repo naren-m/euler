@@ -188,5 +188,5 @@ class TestEuler(unittest.TestCase):
         ]
         for test in tests:
             with self.subTest(msg=test['desc']):
-                res = self.e.getProblem(test['args'][0])
+                res = self.e._getProblem(test['args'][0])
                 self.assertEqual(test['expected'], res)

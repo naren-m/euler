@@ -32,8 +32,11 @@ clean-pyc: ## remove Python file artifacts
 format: clean
 	yapf -r -i .
 
-install: clean
+install: clean uninstall
 	pip3 install -e .
+
+uninstall:
+	pip3 uninstall euler_cli
 
 build:
 	python3 setup.py bdist_wheel

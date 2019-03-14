@@ -5,14 +5,14 @@ from bs4 import BeautifulSoup
 
 class Euler:
     def __init__(self):
-        self.baseUrl = 'https://projecteuler.net'
-        self.problemUrl = self.baseUrl + '/problem=%s'
+        self._baseUrl = 'https://projecteuler.net'
+        self._problemUrl = self._baseUrl + '/problem=%s'
 
     def _generateProblemUrl(self, number):
         if number == None or number == 0 or number == '0':
             return None
 
-        return self.problemUrl % number
+        return self._problemUrl % number
 
     def _getUrlContent(self, url):
         if url == None:
@@ -44,7 +44,7 @@ class Euler:
 
         return s
 
-    def getProblem(self, number=None):
+    def _getProblem(self, number=None):
         url = self._generateProblemUrl(number)
         if url is None:
             return None, None
@@ -54,3 +54,6 @@ class Euler:
             return url, None
 
         return url, self._getProblemFromHtml(content)
+
+    def problem(self, number=None):
+        return self._getProblem(number=number)
