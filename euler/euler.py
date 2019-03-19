@@ -45,15 +45,22 @@ class Euler:
         return s
 
     def _getProblem(self, number=None):
+        response = dict()
+        response['url'] = None
+        response['description'] = None
         url = self._generateProblemUrl(number)
-        if url is None:
-            return None, None
 
+        if url is None:
+            return response
+
+        response['url'] = url
         content = self._getUrlContent(url)
         if content is None:
-            return url, None
+            return response
 
-        return url, self._getProblemFromHtml(content)
+        response['description'] = self._getProblemFromHtml(content)
+
+        return response
 
     def problem(self, number=None):
         return self._getProblem(number=number)

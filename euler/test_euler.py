@@ -154,36 +154,32 @@ class TestEuler(unittest.TestCase):
             {
                 'desc': 'Positive: Problem url integer',
                 'args': [1],
-                'expected': ('https://projecteuler.net/problem=1',
-                             self.problem1)
+                'expected': {'url': 'https://projecteuler.net/problem=1', 'description':self.problem1}
             },
             {
                 'desc': 'Positive: Problem url integer',
                 'args': [2],
-                'expected': ('https://projecteuler.net/problem=2',
-                             self.problem2)
+                'expected': {'url': 'https://projecteuler.net/problem=2', 'description':self.problem2}
             },
             {
                 'desc': 'Positive: Problem url string',
                 'args': ['1'],
-                'expected': ('https://projecteuler.net/problem=1',
-                             self.problem1)
+                'expected': {'url': 'https://projecteuler.net/problem=1', 'description':self.problem1}
             },
             {
-                'desc': 'Negative: passing None',
+                'desc': 'Negative: Passing None',
                 'args': [None],
-                'expected': (None, None)
+                'expected': {'url': None, 'description':None},
             },
             {
                 'desc': 'Negative: passing negative problem number',
                 'args': [-1],
-                'expected': ('https://projecteuler.net/problem=-1', None)
+                'expected': {'url': 'https://projecteuler.net/problem=-1',  'description': None}
             },
             {
                 'desc': 'Negative: passing non-existant problem number',
                 'args': [123456789],
-                'expected': ('https://projecteuler.net/problem=123456789',
-                             None)
+                'expected': {'url': 'https://projecteuler.net/problem=123456789', 'description':  None}
             },
         ]
         for test in tests:
